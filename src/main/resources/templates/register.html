@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BioShop Application</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body class="body-main">
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top  rounded">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/static">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/static">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/static">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/static">Logout</a>
+                </li>
+            </ul>
+            <img width="50px" src="/images/ufo.png" alt="Ufo image">
+        </div>
+    </nav>
+</header>
+<div class="container" id="divForm">
+    <h2 class="text-center text-white">Register User</h2>
+    <form
+            th:method="POST"
+            th:action="@{/auth/register}"
+            th:object="${userRegisterForm}"
+            class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+        <div id="regDiv">
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="firstName" class="text-white font-weight-bold">First Name</label>
+                    <input
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            class="form-control"
+                            placeholder="First name"/>
+                    <small th:if="${#fields.hasErrors('firstName')}"
+                           id="firstNameError"
+                           class="invalid-feedback  form-text bg-danger rounded">Cannot be blank</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="lastName" class="text-white font-weight-bold">Last Name</label>
+                    <input id="lastName"
+                           name="lastName"
+                           type="text" class="form-control"
+                           placeholder="Last name"/>
+                    <small th:if="${#fields.hasErrors('lastName')}"
+                           id="lastNameError"
+                           class="invalid-feedback  form-text bg-danger rounded">Cannot be blank</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="email" class="text-white font-weight-bold">Email</label>
+                    <input id="email"
+                           name="email"
+                           type="text" class="form-control"
+                           placeholder="Email"/>
+                    <small th:if="${#fields.hasErrors('email')}"
+                           id="emailError"
+                           class="invalid-feedback  form-text bg-danger rounded">Must be valid email</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="password" class="text-white font-weight-bold">Password</label>
+                    <input id="password"
+                           name="password"
+                           type="password" class="form-control"
+                           placeholder="Password"/>
+                    <small id="passwordError"
+                           class="invalid-feedback  form-text bg-danger rounded">
+                        Password length must be between 5 and 20 characters and passwords should match.
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="confirmPassword" class="text-white font-weight-bold">Confirm password</label>
+                    <input id="confirmPassword"
+                           name="confirmPassword"
+                           type="password" class="form-control"
+                           placeholder="Confirm password"/>
+                    <small id="confirmPasswordError"
+                           class="invalid-feedback  form-text bg-danger rounded">
+                        Password length must be between 5 and 20 characters and passwords should match.
+                    </small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex">
+                        <input type="submit" class="btn btn-info btn-lg" value="Create account"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<footer class="footer">
+    <th:block th:include="~{fragments/footer}"/>
+</footer>
+</body>
+</html>

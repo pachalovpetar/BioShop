@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="~{fragments/head}"/>
+    <link rel="stylesheet" href="/css/loader.css">
+</head>
+<body>
+<header>
+    <th:block th:include="~{fragments/navbar}"/>
+</header>
+<main>
+    <div class="w-75 mx-auto">
+        <h2 class="text-center mt-5">
+            <span class="badge badge-pill badge-secondary">Welcome to BioProducts Shop</span>
+        </h2>
+        <h2 class="text-center mt-5">We offer only natural <a th:href="@{/products}">fruits and vegetables</a>.</h2>
+        <h2 class="text-center mt-5">If you want to buy a product then you have to <a href="/login">Login</a>/<a href="/register">Register</a>
+        </h2>
+        <hr class="hr-2 bg-dark"/>
+        <div id="index-promoted-products"></div>
+    </div>
+</main>
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+<!--<script type="text/javascript" th:src="@{/js/base/loader.js}"></script>
+<script type="text/javascript" th:src="@{/js/product/promoted-products.js}"></script>-->
+</html>

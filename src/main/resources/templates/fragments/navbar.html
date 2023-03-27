@@ -1,0 +1,78 @@
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<th:block>
+    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-dark border-bottom shadow-sm">
+        <a class="my-0 mr-md-auto font-weight-bold text-white"> <!--href="/"-->BioShop</a>
+        <nav class="row mr-md-3">
+            <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/}">Home</a>
+            <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/products}">Products</a>
+            <li class="nav-item" th:if="!principal.authenticated">
+                <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/auth/login}">Login</a>
+            </li>
+            <li class="nav-item" th:if="!principal.authenticated">
+                <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/auth/register}">Register</a>
+            </li>
+            <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" href="/contacts">Contacts</a>
+            <li>
+                <form th:method="post" th:action="@{/logout}">
+                    <button type="submit">Logout
+                    </button>
+                </form>
+            </li>
+        </nav>
+    </div>
+</th:block>
+
+
+<!--<th:block th:if="principal.name != null">
+    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-dark border-bottom shadow-sm">
+        <a class="my-0 mr-md-auto font-weight-bold text-white"> &lt;!&ndash;href="/"&ndash;&gt;BioProduct Shop</a>
+        <nav class="row mr-md-3">
+            <ul>
+                <li>
+                    <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/products}">Products</a>
+                </li>
+                <li>
+                    <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" href="/contacts">Contacts</a>
+                </li>
+                <li>
+                    <form method="post" th:action="@{/logout}">
+                        <button type="submit">Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+</th:block>-->
+
+
+<!--    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-dark border-bottom shadow-sm">
+      <a class="my-0 mr-md-auto font-weight-bold text-white" href="/home">BioProduct Shop</a>
+      <nav class="row mr-md-3">
+        <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" href="/home">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white">Products</button>
+          <div class="dropdown-content">
+            <a th:href="@{/products}">Products</a>
+
+              <a th:href="@{/products/product-table}">Product Table</a>
+              <a th:href="@{/products/promotion-table}">Promotion Table</a>
+              <a th:href="@{/products/create}">Create Product</a>
+
+          </div>
+        </div>-->
+<!--        <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/orders?size=1&sort=dateCreated,desc&page=0}">Orders</a>
+        <a class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white" th:href="@{/carts}">Shopping cart</a>-->
+<!--        <a sec:authorize="hasRole('ROLE_ADMIN')" class="pt-3 pr-2 pb-3 pl-2 font-weight-bold text-white"
+           th:href="@{/logs?page=0&size=10&sort=time,desc}">Logs</a>-->
+
+</html>
