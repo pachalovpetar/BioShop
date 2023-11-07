@@ -31,10 +31,10 @@
             </div>
             <select class="form-control text-center" th:errorclass="bg-danger" th:field="*{category}" id="category" name="category">
                 <option value="">Select type</option>
-                <option th:each="type : ${T(com.myproject.bioshop.model.enums.ProductType).values()}"
-                        name="type" th:value="${type}" th:text="${type}"></option>
+                <option th:each="cat : ${T(com.myproject.bioshop.model.enums.ProductType).values()}"
+                        name="type" th:value="${cat}" th:text="${cat}"></option>
             </select>
-            <p th:each="e : ${#fields.errors('type')}">
+            <p th:each="e : ${#fields.errors('category')}">
                 <small th:text="${e}" class="text-dark col-12 text-center"></small>
             </p>
         </div>

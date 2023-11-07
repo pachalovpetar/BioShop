@@ -42,8 +42,10 @@ public class ProductService {
         Product mappedProduct = this.modelMapper
                 .map(productCreationDTO, Product.class);
 
-        Category categoryByType = this.categoryService
-                .getCategoryByType(ProductType.valueOf(productCreationDTO.getCategory()));
+        Category categoryByType = this.categoryService.getCategoryByType(ProductType.valueOf(productCreationDTO.getCategory()));
+
+        mappedProduct.setCategory(categoryByType);
+
 
         this.productRepository.saveAndFlush(mappedProduct);
 

@@ -3,9 +3,7 @@ package com.myproject.bioshop.model.entity;
 import com.myproject.bioshop.model.enums.ProductType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
 @NoArgsConstructor

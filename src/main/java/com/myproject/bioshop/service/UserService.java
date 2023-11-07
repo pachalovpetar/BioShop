@@ -9,7 +9,6 @@ import com.myproject.bioshop.model.enums.RoleType;
 import com.myproject.bioshop.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -87,5 +86,13 @@ public class UserService {
         user.getAuthorities().add(this.roleService.findByAuthority("ROLE_ADMIN"));
 
         this.userRepository.saveAndFlush(user);
+    }
+
+    public UserDto getUserById(long id) throws NoSuchUserException {
+        return this.modelMapper
+                .map(this.userRepository
+                        .findUserById(id)
+                        .orElseThrow(NoSuchUserException::new), UserDto.class);
+
     }
 }
